@@ -3,6 +3,12 @@
 <p>
   <strong>Name:</strong>
   <%= @category.name %>
+<ol>
+  <strong>Услуги:</strong>
+  <% Service.where(category_id: @category.id).each do |service| %>
+    <li><%= service.name %></li>
+  <% end %>
+</ol>
 </p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
