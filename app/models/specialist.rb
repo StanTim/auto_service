@@ -3,5 +3,7 @@ class Specialist < ApplicationRecord
   has_many :services, through: :order_lists
   has_many :order_lists
 
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true,
+            length: { maximum: 50 },
+            format: { with: /\A[a-zA-Z]+\z/ }
 end
