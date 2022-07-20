@@ -1,5 +1,6 @@
 class OrderListsController < ApplicationController
   before_action :set_order_list, only: %i[ show edit update destroy ]
+  before_action :set_order, only: %i[ index show edit update destroy ]
 
   # GET /order_lists or /order_lists.json
   def index
@@ -58,13 +59,18 @@ class OrderListsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order_list
-      @order_list = OrderList.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def order_list_params
-      params.require(:order_list).permit(:order_id, :category_id, :specialist_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_order_list
+    @order_list = OrderList.find(params[:id])
+  end
+
+  def set_order
+    @order = Order.find(@order_list.order_id)
+  end
+
+  # Only allow a list of trusted parameters through.
+  def order_list_params
+    params.require(:order_list).permit(:order_id, :category_id, :specialist_id)
+  end
 end
