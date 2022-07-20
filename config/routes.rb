@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :order_lists
-  resources :orders
+  root "orders#index"
+
+  resources :orders do
+    resources :order_lists
+  end
+
   resources :specialists
   resources :services
   resources :categories
