@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AutoService</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>AutoService</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<div class="header">
+  <div class="container">
+    <div class="header-logo">
+      <h1 class="header-title"><%= link_to "Автосервис", root_path %></h1>
+    </div>
+
+    <div class="header-nav">
+      <%= link_to 'Заказы', orders_path %>
+      <%= link_to 'Услуги', services_path %>
+      <%= link_to 'Сотрудники', specialists_path %>
+    </div>
+  </div>
+</div>
+
+<body>
+<%= yield %>
+</body>
 </html>
