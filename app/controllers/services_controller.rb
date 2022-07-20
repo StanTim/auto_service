@@ -41,7 +41,6 @@ class ServicesController < ApplicationController
 
   # PATCH/PUT /services/1 or /services/1.json
   def update
-    @category = Category.pluck(:id, :name)
     respond_to do |format|
       if @service.update(service_params)
         format.html { redirect_to service_url(@service), notice: "Service was successfully updated." }
