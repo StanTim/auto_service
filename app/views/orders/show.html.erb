@@ -1,18 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Client name:</strong>
+  <strong>Клиент:</strong>
   <%= @order.client_name %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong>Телефон:</strong>
   <%= @order.phone %>
 </p>
 
 <p>
-  <strong>Car:</strong>
+  <strong>Машина:</strong>
   <%= @order.car %>
+</p>
+
+<p>
+  <strong>Заказал:</strong>
+
+<ol>
+  <% @order.order_lists.each do |list| %>
+    <li> <%= list.service.name %> (<%= link_to list.service.category.name, category_path(list.service.category.id) %>), Сотрудник: <%= link_to list.specialist.name,
+                                                                                              specialist_path(list.specialist.id) %> </li>
+  <% end %>
+</ol>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
