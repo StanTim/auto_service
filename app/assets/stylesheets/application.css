@@ -13,3 +13,182 @@
  *= require_tree .
  *= require_self
  */
+
+.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.top svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.top .shape-fill {
+  fill: #FFFFFF;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .top svg {
+    width: calc(136% + 1.3px);
+    height: 86px;
+  }
+}
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.bottom svg {
+  position: relative;
+  display: block;
+  width: calc(103% + 1.3px);
+  height: 46px;
+}
+
+.bottom .shape-fill {
+  fill: #FFFFFF;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+html, body{
+  margin : 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+h5 {
+  font-size: 20px;
+  padding: 5px 30px;
+  color: rgb(40, 40, 218);
+}
+
+.social img {
+
+  height: 40px;
+  width: 40px;
+}
+.inner {
+
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  transform: translate(-70%, -30%);
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  font-size: 10px;
+  padding: 10px;
+}
+
+
+.my-4{
+
+  width: 400px;
+  right: 100%;
+  transform: translateX(100%);
+}
+
+figure {
+
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+
+  background-image: url("im/carbg.PNG");
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+}
+.flip-card {
+  background-color: transparent;
+  width: 395px;
+  height: 400px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  color : #bbb;
+  background-color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  color :whitesmoke;
+  background-color: black;
+  transform: rotateY(180deg);
+}
+footer{
+  color: white;
+  background-color: black;
+}
+
