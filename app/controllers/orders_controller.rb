@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @order.order_lists.build
   end
 
   # GET /orders/1/edit
@@ -22,10 +23,10 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
-
+    # @order_list = @order.order_lists.create(order_list_params)
     respond_to do |format|
       if @order.save
-        format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
+        format.html { redirect_to order_path(@order), notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to order_url(@order), notice: "Order was successfully updated." }
+        format.html { redirect_to order_path(@order), notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,13 +59,25 @@ class OrdersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def order_params
-      params.require(:order).permit(:client_name, :phone, :car)
-    end
+  # def set_order_lists
+  #   @order_lists = @order.order_lists
+  # end
+
+  def set_order
+    @order = Order.find(params[:id])
+  end
+
+  def order_params
+    params.require(:order).permit(:client_name,
+                                  :phone,
+                                  :car,
+                                  order_lists_attributes: [:order_id,
+                                                           :service_id,
+                                                           :specialist_id] )
+  end
+
+  # def order_list_params
+  #   params.require(:order).permit(:order_id, :service_id, :specialist_id)
+  # end
 end
