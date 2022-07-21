@@ -1,4 +1,4 @@
-<%= form_with(model: order) do |form| %>
+<%= form_for @order do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -26,7 +26,49 @@
     <%= form.text_field :car %>
   </div>
 
+  <div class="field">
+
+    <%= form.fields_for :order_lists do |f| %>
+      <%= render 'order_lists_fields', f: f %>
+    <% end %>
+    <%= link_to_add_fields "Добавить услугу", form, :order_lists %>
+
+  </div>
+
+<!--  <div class="field">-->
+    <%#= form.label :service %>
+    <%# byebug %>
+    <%#= form.collection_select :service_id, Service.order(:name), :id, :name %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :specialist %>
+    <%# byebug %>
+    <%#= form.collection_select :specialist_id, Specialist.order(:name), :id, :name %>
+<!--  </div>-->
+
+  <%#= render 'order_lists/_form', order_list: @order_list %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+
+  $('form').on('click', '.remove-fields', function(event) {
+    console.log('clicked')
+    $(this).prev('input[type=hidden]').val('1');
+    $(this).closest('fieldset').hide();
+    return event.preventDefault();
+  });
+
+  $('form').on('click', '.add_fields', function(event) {
+    console.log('clicked!')
+    var regexp, time;
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    return event.preventDefault();
+  });
+</script>
