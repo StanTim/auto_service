@@ -29,7 +29,7 @@
   <div class="field">
 
     <%= form.fields_for :order_lists do |f| %>
-      <%= render 'order_lists_fields', f: f %>
+      <%= render 'order_list_fields', f: f %>
     <% end %>
     <%= link_to_add_fields "Добавить услугу", form, :order_lists %>
 
@@ -37,17 +37,14 @@
 
 <!--  <div class="field">-->
     <%#= form.label :service %>
-    <%# byebug %>
     <%#= form.collection_select :service_id, Service.order(:name), :id, :name %>
 <!--  </div>-->
 
 <!--  <div class="field">-->
     <%#= form.label :specialist %>
-    <%# byebug %>
     <%#= form.collection_select :specialist_id, Specialist.order(:name), :id, :name %>
 <!--  </div>-->
 
-  <%#= render 'order_lists/_form', order_list: @order_list %>
 
   <div class="actions">
     <%= form.submit %>
