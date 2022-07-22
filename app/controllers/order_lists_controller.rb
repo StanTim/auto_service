@@ -60,16 +60,14 @@ class OrderListsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_order_list
     @order_list = OrderList.find(params[:id])
   end
 
   def set_order
-    @order = Order.find(@order_list.order_id)
+    @order = OrderList.find(params[:order_id])
   end
 
-  # Only allow a list of trusted parameters through.
   def order_list_params
     params.require(:order_list).permit(:order_id, :category_id, :specialist_id)
   end
