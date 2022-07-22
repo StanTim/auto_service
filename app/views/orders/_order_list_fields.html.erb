@@ -1,0 +1,14 @@
+
+<fieldset>
+  <%= f.label :service_id %>
+  <%= f.collection_select :service_id,
+                          Service.order(:name),
+                          :id, :name %>
+
+  <%= f.label :specialist_id %>
+  <%= f.collection_select :specialist_id,
+                             Specialist.order(:name),
+                             :id, :name %>
+  <%= f.hidden_field :order_id %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</fieldset>
