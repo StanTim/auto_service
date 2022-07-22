@@ -20,8 +20,13 @@
 
 <ol>
   <% @order.order_lists.each do |list| %>
-    <li> <%= list.service.name %> (<%= link_to list.service.category.name, category_path(list.service.category.id) %>), Сотрудник: <%= link_to list.specialist.name,
-                                                                                              specialist_path(list.specialist.id) %> </li>
+    <li> <%= list.service.name %>
+      (<%= link_to list.service.category.name, category_path(list.service.category.id) %>),
+      Сотрудник: <%= link_to list.specialist.name, specialist_path(list.specialist.id) %>
+      <td><%= link_to 'Show', order_order_list_path(list.id) %></td>
+      <td><%= link_to 'Edit', edit_order_order_list_path(list.id) %></td>
+      <td><%= link_to 'Destroy', @order_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </li>
   <% end %>
 </ol>
 </p>
