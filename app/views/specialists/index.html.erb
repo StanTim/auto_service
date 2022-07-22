@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Specialists</h1>
+<h2>Специалисты сервиса:</h2>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Имя:</th>
+      <th>Стаж с:</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @specialists.each do |specialist| %>
       <tr>
         <td><%= specialist.name %></td>
+        <td><%= specialist.created_at.strftime("%d-%m-%Y") %></td>
         <td><%= link_to 'Show', specialist %></td>
         <td><%= link_to 'Edit', edit_specialist_path(specialist) %></td>
         <td><%= link_to 'Destroy', specialist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,4 +26,5 @@
 
 <br>
 
-<%= link_to 'New Specialist', new_specialist_path %>
+<%#= render 'form', specialist: @specialist %>
+<%= link_to 'Добавить сотрудника', new_specialist_path %>
