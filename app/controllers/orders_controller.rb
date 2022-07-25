@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+    @order = Order.find(params[:id])
   end
 
   # GET /orders/new
@@ -69,12 +70,14 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:client_name,
-                                  :phone,
+    params.require(:order).permit(:id,
                                   :car,
-                                  order_lists_attributes: [:order_id,
+                                  :phone,
+                                  :client_name,
+                                  order_lists_attributes: [:id,
+                                                           :order_id,
                                                            :service_id,
-                                                           :specialist_id] )
+                                                           :specialist_id])
   end
 
   # def order_list_params
