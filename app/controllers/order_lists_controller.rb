@@ -1,6 +1,6 @@
 class OrderListsController < ApplicationController
+  before_action :set_order, only: %i[ show edit update destroy ]
   before_action :set_order_list, only: %i[ show edit update destroy ]
-  before_action :set_order, only: %i[ index show edit update destroy ]
 
   # GET /order_lists or /order_lists.json
   def index
@@ -53,7 +53,7 @@ class OrderListsController < ApplicationController
     @order_list.destroy
 
     respond_to do |format|
-      format.html { redirect_to order_lists_url, notice: "Order list was successfully destroyed." }
+      format.html { redirect_to order_path(@order_list.order_id), notice: "Service was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -65,7 +65,11 @@ class OrderListsController < ApplicationController
   end
 
   def set_order
-    @order = OrderList.find(params[:order_id])
+    @order = OrderList.find_by(id: :order_id)
+  end
+
+  def order_params
+    params.require(:order).permit(:client_name, :phone, :car)
   end
 
   def order_list_params
