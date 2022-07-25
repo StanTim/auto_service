@@ -2,17 +2,17 @@
 
 <p>
   <strong>Order:</strong>
-  <%= @order_list.order_id %>
+  <%= @order_list.service.id %>
 </p>
 
 <p>
   <strong>Service:</strong>
-  <%= @order_list.service_id %>
+  <%= @order_list.service.name %>
 </p>
 
 <p>
   <strong>Specialist:</strong>
-  <%= @order_list.specialist_id %>
+  <%= @order_list.specialist.name %>
 </p>
 
 <%= link_to 'Edit', edit_order_list_path(@order_list) %> |

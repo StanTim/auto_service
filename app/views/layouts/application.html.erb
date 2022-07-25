@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="app/assets/stylesheets/application.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -20,7 +20,6 @@
   <%= javascript_pack_tag 'application' %>
 
 </head>
-
 
 <body>
 <div class="header">
@@ -36,38 +35,30 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <h5><i class="fa fa-fw fa-home"></i> Заказы&nbsp;&nbsp;</h5>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <h5><i class="fas fa-users"></i> Сотрудники&nbsp;&nbsp; </h5>
-            </a>
+            <h5><i class="fa fa-fw fa-home"></i> <%= link_to "Заказы",
+                                                             root_path,
+                                                             class: "nav-link" %>&nbsp;&nbsp;</h5>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <h5><i class="fas fa-tools"></i> Услуги&nbsp;&nbsp; </h5>
-            </a>
+            <h5><i class="fas fa-users"></i> <%= link_to 'Сотрудники', specialists_path, class: "nav-link" %>&nbsp;&nbsp;
+            </h5>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <h5><i class="fas fa-tools"></i> Категории работ&nbsp;&nbsp; </h5>
-            </a>
+            <h5><i class="fas fa-tools"></i> <%= link_to 'Услуги', services_path, class: "nav-link" %>&nbsp;&nbsp; </h5>
+          </li>
+          <li class="nav-item">
+            <h5><i class="fas fa-tools"></i> <%= link_to 'Категории', categories_path, class: "nav-link" %>&nbsp;&nbsp; </h5>
           </li>
         </ul>
       </div>
-    <div class="header-nav">
-      <%= link_to 'Сотрудники', specialists_path %>
-      <%= link_to 'Заказы', orders_path %>
-      <%= link_to 'Услуги', services_path %>
-
-    </div>
-
+      <div class="header-nav">
+      </div>
     </nav>
+
 <!--    <div class="row padding image" style="position: relative;">-->
-<!--      <img src="assets/images/car4.jpg" height="600px">-->
+      <%#= image_tag("car4.jpg", height: "500px") %>
+
+      <%= yield %>
 
 <!--      <div class="bottom">-->
 <!--        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"-->
@@ -83,30 +74,262 @@
 <!--            class="shape-fill"></path>-->
 <!--        </svg>-->
 <!--      </div>-->
-<%= yield %>
-    </div>
+<!--    </div>-->
   </div>
 </div>
+
+<br>
+<br>
+<br>
+<!--<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">-->
+<!--  <h3>-->
+<!--    A website which provides car services at affordable rate along with good service quality-->
+<!--  </h3>-->
+<!--</div>-->
+<!--<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">-->
+<!--  <button type="button" class="btn btn-outline-secondary btn-lg">Explore</button>-->
+<!--</div>-->
+</div>
+<br>
+<!--About us-->
+<!--<div class="container-fluid padding" style="background-color: rgb(40, 40, 218); position: relative;">-->
+<!--  <br><br>-->
+<!--  <div class="top">-->
+<!--    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"-->
+<!--         style="height: 80px;">-->
+<!--      <path-->
+<!--        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"-->
+<!--        opacity=".25" class="shape-fill"></path>-->
+<!--      <path-->
+<!--        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"-->
+<!--        opacity=".5" class="shape-fill"></path>-->
+<!--      <path-->
+<!--        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"-->
+<!--        class="shape-fill"></path>-->
+<!--    </svg>-->
+<!--  </div>-->
+<!--  <br><br>-->
+<!--  <div class="row padding">-->
+<!--    <div class="col-md-12 col-lg-6">-->
+<!--      <h1 class="display-4" style="color: white;">About Us</h1>-->
+<!--      <br>-->
+<!--      <p class="lead" style="color: white;">-->
+<!--        Mendyc is a platform which enables customers to get their vehicles repaired wherever they want, whenever they-->
+<!--        want at affordable rates. With a hard working core team and support from our partners, we aim at bringing-->
+<!--        transparency, affordability, and punctuality in the arena of car services.-->
+
+<!--      </p>-->
+<!--    </div>-->
+<!--    <div class="col-md-12 col-lg-6">-->
+<!--      <img src="im/car1-removebg-preview.png" class="img-fluid">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <br><br>-->
+<!--  <div class="bottom">-->
+<!--    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"-->
+<!--         style="height: 100px;">-->
+<!--      <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>-->
+<!--    </svg>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--Our vision-->
+<!--<div class="container-fluid padding">-->
+<!--  <div class="row text-center">-->
+<!--    <div class="col-12">-->
+
+<!--      <h1 class="display-4">Our Vision</h1>-->
+<!--    </div>-->
+<!--    <hr class="my-4">-->
+<!--    <div class="col-12">-->
+<!--      <p class="lead"><b>-->
+<!--        MENDYC is a garage listing and service providing startup that acts as a glue between de-localized garage-->
+<!--        dealers, car repairers, and the end-user i.e., the car owners. We have the vision to define the new terms of-->
+<!--        car services where our customers can avail the best services with the shortest amount of time.-->
+
+<!--      </b>-->
+<!--      </p>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+<!--</div>-->
+
+
+<!--Mission Section-->
+<!--<div class="container-fluid padding" style="background-color: rgb(40, 40, 218); position: relative;">-->
+<!--  <div class="row text-center">-->
+<!--    <div class="col-12">-->
+<!--      <br><br>-->
+<!--      <br><br>-->
+<!--      <h1 class="display-4" style="color: white;">Our Mission</h1>-->
+<!--    </div>-->
+<!--    <br>-->
+<!--    <div class="col-12">-->
+<!--      <p class="lead" style="color: white;"><b>-->
+<!--        Managing best services within limited time-->
+<!--        Experience car services like you’ve never done before!-->
+<!--      </b>-->
+<!--      </p>-->
+<!--      <br><br><br><br>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="top">-->
+
+<!--    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"-->
+<!--         style="height: 100px;">-->
+<!--      <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>-->
+<!--    </svg>-->
+
+
+<!--  </div>-->
+
+
+<!--</div>-->
+
+<!--Two column About Us-->
+
+
+<!--Fixed Background-->
+<figure>
+  <div class="fixed-wrap">
+    <div id="fixed"></div>
+  </div>
+</figure>
+<br>
+<!--Three column section which contains feature cards-->
+<!--<div class="container-fluid padding">-->
+<!--  <div class="row text-center">-->
+<!--    <div class="col-12">-->
+<!--      <h1 class="display-4">Why us?</h1>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <hr>-->
+<!--</div>-->
+<!--Feature Cards-->
+<!--<div class="conatiner-fluid padding">-->
+<!--  <div class="row padding">-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card" style="width:395px;height: 400px;">-->
+<!--        <div class="flip-card">-->
+<!--          <div class="flip-card-inner">-->
+<!--            <div class="flip-card-front">-->
+<!--              <img src="im/car5.jpg" class="card-img-top" class="img-fluid" width="395px" height="400px">-->
+
+<!--            </div>-->
+<!--            <div class="flip-card-back">-->
+<!--              <br>-->
+<!--              <br>-->
+<!--              <br><br>-->
+<!--              <br>-->
+<!--              <br>-->
+<!--              <h2>Trustworthy and Best Car Services</h2>-->
+
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--      <div class="card" style="width: 395px;height: 300px;">-->
+<!--        <div class="flip-card">-->
+<!--          <div class="flip-card-inner">-->
+<!--            <div class="flip-card-front">-->
+<!--              <img src="im/car4.jpg" class="card-img-top" class="img-fluid" width="395px" height="400px">-->
+
+<!--            </div>-->
+<!--            <div class="flip-card-back">-->
+<!--              <br>-->
+<!--              <br>-->
+<!--              <br><br>-->
+<!--              <br>-->
+<!--              <br>-->
+<!--              <h2>Pocket friendly and easy to book</h2>-->
+
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-4" style="width: 395px;height: 300px;">-->
+<!--      <div class="card">-->
+<!--        <div class="flip-card">-->
+<!--          <div class="flip-card-inner">-->
+<!--            <div class="flip-card-front">-->
+
+<!--              <img src="im/car6.jpg" class="card-img-top" class="img-fluid" width="395px" height="400px">-->
+              <%#= image_tag("car6.jpg", class: "card-img-top img-fluid", width: "395px", height: "400px") %>
+
+<!--            </div>-->
+<!--            <div class="flip-card-back">-->
+<!--              <br>-->
+<!--              <br>-->
+<!--              <br><br>-->
+<!--              <br>-->
+<!--              <br>-->
+<!--              <h2>Saves a lot of time </h2>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<br>
+<br>
+
 </body>
+<footer>
 
-<!--<footer>-->
-<footer class="stiky-bottom">
+  <div class="container-fluid padding" style="position: relative;">
+    <div class="top">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"
+           style="height: 80px;">
+        <path
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+          opacity=".25" class="shape-fill"></path>
+        <path
+          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+          opacity=".5" class="shape-fill"></path>
+        <path
+          d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+          class="shape-fill"></path>
+      </svg>
+    </div>
+    <br><br><br>
+    <div class="row text-center padding">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-          crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"></script>
+      <div class="col-md-4">
+        <hr class="light">
 
-  <br>
-  <p>&copy; Станислав Тиманов </p>
-  <p><%= phone_to "+79031694569" %></p>
-  <p><%= mail_to "1694569@mail.ru" %></p>
-    <p><%= Time.now.strftime("%Y") %> год</p>
+      </div>
+      <div class="col-md-4">
+        <hr class="light">
+        <p>Автор</p>
+        <hr class="light">
+      </div>
+      <div class="col-12">
+        <p>&copy; Станислав Тиманов </p>
+        <p><%= phone_to "+79031694569" %></p>
+        <p><%= mail_to "1694569@mail.ru" %></p>
+        <hr>
+        <p><%= Time.now.strftime("%Y") %> год</p>
+      </div>
+    </div>
+
+  </div>
+
 </footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
 
 </html>

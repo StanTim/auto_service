@@ -19,17 +19,19 @@
   <strong>Заказал:</strong>
 
 <ol>
-  <% @order.order_lists.each do |list| %>
+  <% @order.order_lists.map do |list| %>
+
     <li> <%= list.service.name %>
       (<%= link_to list.service.category.name, category_path(list.service.category.id) %>),
       Сотрудник: <%= link_to list.specialist.name, specialist_path(list.specialist.id) %>
-      <td><%= link_to 'Show', order_order_list_path(list.id) %></td>
-      <td><%= link_to 'Edit', edit_order_order_list_path(list.id) %></td>
-      <td><%= link_to 'Destroy', @order_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Показать', order_list_path(list.id) %></td>
+      <td><%= link_to 'Редактировать', edit_order_list_path(list.id) %></td>
+      <td><%= link_to 'Удалить', order_list_path(list.id),
+                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </li>
   <% end %>
 </ol>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Редактировать заказ', edit_order_path(@order) %> |
+<%= link_to 'Назад', orders_path %>

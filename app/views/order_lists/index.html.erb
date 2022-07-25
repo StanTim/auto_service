@@ -13,13 +13,13 @@
   </thead>
 
   <tbody>
-    <% @order.order_lists.each do |order| %>
+    <% @order_lists.map do |order_list| %>
       <tr>
-        <td><%= order.order_id %></td>
-        <td><%= order.service_id %></td>
-        <td><%= order.specialist_id %></td>
-        <td><%= link_to 'Show', order_list %></td>
-        <td><%= link_to 'Edit', edit_order_list_path(order_list) %></td>
+        <td><%= order_list.order.car %></td>
+        <td><%= order_list.service.name %></td>
+        <td><%= order_list.specialist.name %></td>
+        <td><%= link_to 'Show', order_list_path(order_list.id) %></td>
+        <td><%= link_to 'Edit', edit_order_list_path(order_list.id) %></td>
         <td><%= link_to 'Destroy', order_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

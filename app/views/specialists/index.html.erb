@@ -1,28 +1,36 @@
 <p id="notice"><%= notice %></p>
-
-<h2>Специалисты сервиса:</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Имя:</th>
-      <th>Стаж с:</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<!--Team Section-->
+<div class="container-fluid padding">
+  <div class="row text-center">
+    <div class="col-12">
+      <h3 class="display-4">Специалисты сервиса:</h3>
+    </div>
+  </div>
+  <hr>
+</div>
+<!--Team Cards-->
+<div class="container-fluid padding">
+  <div class="row padding">
     <% @specialists.each do |specialist| %>
-      <tr>
-        <td><%= specialist.name %></td>
-        <td><%= specialist.created_at.strftime("%d-%m-%Y") %></td>
-        <td><%= link_to 'Show', specialist %></td>
-        <td><%= link_to 'Edit', edit_specialist_path(specialist) %></td>
-        <td><%= link_to 'Destroy', specialist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-md-4">
+        <div class="card" style="width:395px">
+          <%= image_tag("face2.png", class: "card-img-top" "img-fluid", height: "400px") %>
+          <div class="card-body">
+            <h2 class="display-5"><%= specialist.name %></h2>
+            <p>Стаж с: <%= specialist.created_at.strftime("%d-%m-%Y") %></p>
+            <tr>
+              <td></td>
+              <td><%= link_to 'Show', specialist %></td>
+              <td><%= link_to 'Edit', edit_specialist_path(specialist) %></td>
+              <td><%= link_to 'Destroy', specialist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <!--          <button type="button" class="btn btn-outline-secondary btn-lg">Contact Me</button>-->
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
 <br>
 
