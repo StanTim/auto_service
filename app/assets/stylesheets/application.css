@@ -130,7 +130,7 @@ figure {
 }
 #fixed {
 
-  background-image: url(app/assets/images/carbg.png);
+  background-image: url("app/assets/images/carbg.png");
   position: fixed;
   display: block;
   top: 0;
