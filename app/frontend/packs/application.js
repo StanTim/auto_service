@@ -1,37 +1,18 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-
 import Rails from "@rails/ujs"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-
 Rails.start()
-ActiveStorage.start()
 
-/* You may have a few 'require' lines above this already */
+import "bootstrap/dist/js/bootstrap"
 
-require("@popperjs/core")
+import "../styles/application.scss"
+import "../styles/application.css"
+import "../styles/specialists.scss"
+import "../styles/order_lists.scss"
+import "../styles/orders.scss"
+import "../styles/services.scss"
+import "../styles/specialists.scss"
+
+import "./listener"
 
 import "bootstrap"
 
-// Import the specific modules you may need (Modal, Alert, etc)
-import { Tooltip, Popover } from "bootstrap"
-
-// The stylesheet location we created earlier
-require("../stylesheets/application.scss")
-
-// If you're using Turbolinks. Otherwise simply use: jQuery(function () {
-document.addEventListener("turbolinks:load", () => {
-  // Both of these are from the Bootstrap 5 docs
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-    return new Tooltip(tooltipTriggerEl)
-  })
-
-  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-  var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
-    return new Popover(popoverTriggerEl)
-  })
-})
+const images = require.context("../images", true)
