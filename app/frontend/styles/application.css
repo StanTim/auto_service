@@ -115,7 +115,7 @@ figure {
 }
 #fixed {
 
-  background-image: url("../images/carbg.png");
+  background-image: url(../images/carbg.png);
   position: fixed;
   display: block;
   top: 0;
