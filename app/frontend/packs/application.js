@@ -1,5 +1,4 @@
 import Rails from "@rails/ujs"
-Rails.start()
 
 import "bootstrap/dist/js/bootstrap"
 
@@ -14,5 +13,7 @@ import "../styles/specialists.scss"
 import "./listener"
 
 import "bootstrap"
+
+Rails.start()
 
 const images = require.context("../images", true)
