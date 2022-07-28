@@ -7,7 +7,8 @@ require("jquery")
 import { Tooltip, Popover } from "bootstrap"
 
 // The stylesheet location we created earlier
-require("../styles/application.scss")
+// require("../styles/application.scss")
+require("../styles/application.css")
 
 // If you're using Turbolinks. Otherwise simply use: jQuery(function () {
 document.addEventListener("turbolinks:load", () => {
