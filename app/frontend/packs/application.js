@@ -4,7 +4,7 @@ Rails.start()
 import "bootstrap/dist/js/bootstrap"
 
 import "../styles/application.scss"
-import "../styles/application.css"
+import "../styles/app.css"
 import "../styles/specialists.scss"
 import "../styles/order_lists.scss"
 import "../styles/orders.scss"
