@@ -11,7 +11,7 @@
 .top svg {
   position: relative;
   display: block;
-  width: calc(100% + 1.3px);
+  /*width: calc(100% + 1.3px);*/
   height: 150px;
 }
 
@@ -22,7 +22,7 @@
 /** For tablet devices **/
 @media (min-width: 768px) and (max-width: 1023px) {
   .top svg {
-    width: calc(136% + 1.3px);
+    /*width: calc(136% + 1.3px);*/
     height: 86px;
   }
 }
@@ -39,7 +39,7 @@
 .bottom svg {
   position: relative;
   display: block;
-  width: calc(103% + 1.3px);
+  /*width: calc(103% + 1.3px);*/
   height: 46px;
 }
 
