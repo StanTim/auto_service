@@ -6,7 +6,7 @@ import "./listener"
 
 import "bootstrap"
 
-import "../styles/app.scss"
+import "../styles/app.css"
 
 Rails.start()
 
