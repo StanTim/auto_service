@@ -6,6 +6,8 @@ import "./listener"
 
 import "bootstrap"
 
+import "../styles/app.css"
+
 Rails.start()
 
 const images = require.context("../images", true)
