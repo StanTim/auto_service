@@ -1,8 +1,8 @@
 
-Specialist.find_or_create_by(name: "Петрович")
-Specialist.find_or_create_by(name: "Степаныч")
-Specialist.find_or_create_by(name: "Анджелина Джоли")
-Specialist.find_or_create_by(name: "Генри Форд")
+Specialist.create(name: "Петрович")
+Specialist.create(name: "Степаныч")
+Specialist.create(name: "Анджелина Джоли")
+Specialist.create(name: "Генри Форд")
 
 CATEGORIES = ["Кузовной ремонт",
               "Шиномонтаж",
