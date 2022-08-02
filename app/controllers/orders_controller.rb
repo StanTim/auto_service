@@ -4,6 +4,10 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     @orders = Order.all
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   # GET /orders/1 or /orders/1.json
@@ -61,9 +65,18 @@ class OrdersController < ApplicationController
 
   private
 
-  # def set_order_lists
-  #   @order_lists = @order.order_lists
-  # end
+  def export_to_xlsx(orders)
+    orders.order(created_at: :desc).each do |order|
+      "order_#{order.id}.xlsx"
+      render_to_string(layout: false, headlers: [:axlsx],
+                             formats: [:xlsx],
+                             template: 'orders/order',
+                             locals: { order: order })
+    end
+
+    # rewind
+    # send_data read, filename: 'orders.xlsx'
+  end
 
   def set_order
     @order = Order.find(params[:id])
@@ -79,8 +92,4 @@ class OrdersController < ApplicationController
                                                            :service_id,
                                                            :specialist_id])
   end
-
-  # def order_list_params
-  #   params.require(:order).permit(:order_id, :service_id, :specialist_id)
-  # end
 end
