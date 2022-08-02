@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :services
   resources :categories
-  resources :specialists
+  resources :specialists do
+    resources :order_lists
+  end
   resources :order_lists
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
