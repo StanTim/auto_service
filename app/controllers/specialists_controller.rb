@@ -8,6 +8,7 @@ class SpecialistsController < ApplicationController
 
   # GET /specialists/1 or /specialists/1.json
   def show
+    @order_lists = @specialists.find(params[:id]).order_lists
   end
 
   # GET /specialists/new
