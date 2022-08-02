@@ -18,6 +18,9 @@
           <div class="card-body">
             <h2 class="display-5"><%= specialist.name %></h2>
             <p>Стаж с: <%= specialist.created_at.strftime("%d-%m-%Y") %></p>
+            <p>Выполнил услуг: <%= link_to specialist.order_lists.count,
+                                           specialist_order_lists_path(specialist.id) %>
+            </p>
             <tr>
               <td></td>
               <td><%= link_to 'Show', specialist %></td>
@@ -34,5 +37,4 @@
 
 <br>
 
-<%#= render 'form', specialist: @specialist %>
 <%= link_to 'Добавить сотрудника', new_specialist_path %>
