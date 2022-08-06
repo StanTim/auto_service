@@ -3,18 +3,18 @@
 <div class=row>
   <div class="col-md-4">
     <h2>Заказы:</h2>
-<!--    <div class="btn-group mb-3">-->
-<!--    </div>-->
+    <!--    <div class="btn-group mb-3">-->
+    <!--    </div>-->
 
   </div>
 
   <table>
     <thead>
     <tr>
-      <th>Клиент:</th>
-      <th>Тел.:</th>
-      <th>Авто:</th>
-      <th>Дата:</th>
+      <th><%= sort_link(@q, :client_name, 'Клиент:', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :phone, 'Тел.:', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :car, 'Авто:', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :created_at, 'Дата:', default_order: :asc) %></th>
       <th colspan="3"></th>
     </tr>
     </thead>
@@ -41,7 +41,7 @@
     <div class="btn-group mb-12">
       <%= link_to 'Добавить новый заказ', new_order_path, class: "btn btn-primary" %>
       <%= link_to "Скачать в формате Excel", orders_path(format: :xlsx),
-                  class: "btn btn-secondary", alling: "right" %>
+                  class: "btn btn-secondary", order: "flex" %>
     </div>
   </div>
 </div>
