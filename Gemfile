@@ -12,6 +12,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "font-awesome-rails"
 gem 'caxlsx', '~> 3.0'
 gem 'caxlsx_rails', '~> 0.6.2'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
