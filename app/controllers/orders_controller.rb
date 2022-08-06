@@ -3,7 +3,8 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    @q = Order.ransack(params[:q])
+    @orders = @q.result(distinct: true)
     respond_to do |format|
       format.html
       format.xlsx
